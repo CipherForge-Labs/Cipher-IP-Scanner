@@ -1,4 +1,5 @@
 [![CodeQL](https://github.com/CipherForge-Labs/Cipher-IP-Scanner/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/CipherForge-Labs/Cipher-IP-Scanner/actions/workflows/github-code-scanning/codeql)
+[![Dependency review](https://github.com/CipherForge-Labs/Cipher-IP-Scanner/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/CipherForge-Labs/Cipher-IP-Scanner/actions/workflows/dependency-review.yml)
 # CipherForge IP Scanner
 
 ## Overview
