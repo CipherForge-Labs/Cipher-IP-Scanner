@@ -1,3 +1,4 @@
+[![CodeQL](https://github.com/CipherForge-Labs/Cipher-IP-Scanner/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/CipherForge-Labs/Cipher-IP-Scanner/actions/workflows/github-code-scanning/codeql)
 # CipherForge IP Scanner
 
 ## Overview
