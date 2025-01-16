@@ -1,30 +1,28 @@
-name: 'Dependency review'
+name: 'Daily Dependency Audit'
 
 on:
-  pull_request:
-    branches: [ "main" ]
   schedule:
-    # Schedule to run daily at midnight UTC
     - cron: "0 0 * * *"
 
 permissions:
   contents: read
-  # Write permissions for pull-requests are required for using the `comment-summary-in-pr` option, comment out if you aren't using this option
-  pull-requests: write
 
 jobs:
-  dependency-review:
+  daily-audit:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout repository'
         uses: actions/checkout@v4
 
-      - name: 'Dependency Review for Pull Requests'
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: actions/dependency-review-action@v4
+      - name: 'Set up Python'
+        uses: actions/setup-python@v4
         with:
-          comment-summary-in-pr: always
+          python-version: '3.12'
 
-      - name: 'Skip Dependency Review for Scheduled Runs'
-        if: ${{ github.event_name != 'pull_request' }}
-        run: echo "Dependency review is not applicable for scheduled runs."
+      - name: 'Install dependencies'
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 'Run pip-audit'
+        run: pip-audit
